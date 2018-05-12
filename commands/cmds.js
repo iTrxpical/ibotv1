@@ -9,7 +9,7 @@ let thumbnail = client.user.avatarURL;
         .setAuthor(name,thumbnail)
         .setColor(randomColor)
         .setTitle(":book:   " + name + " Commands")
-        .setDescription("The prefix here is '!' you can find a full list of commands here: https://is.gd/ibotcmds")
+        .setDescription("The prefix here is '!' you can find a full list of commands here: http://ibot.space/cmds")
        
     message.channel.sendEmbed(embedcmds);
     message.delete(10000)
