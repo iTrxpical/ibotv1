@@ -25,9 +25,7 @@ client.on('ready', () => {
     }, 1800000);
 });
 
-dbl.webhook.on('vote', vote => {
-  console.log(`User with ID ${vote.user} just voted!`);
-});
+
 
 
 
