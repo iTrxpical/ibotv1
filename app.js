@@ -22,7 +22,7 @@ client.on('ready', () => {
     setInterval(() => {
         dbl.postStats(client.guilds.size);
         client.user.setActivity('with ' + client.users.size.toLocaleString() + ' users! | ibot.space', { type: 'WATCHING' });
-    }, 1800000);
+    }, 500);
 });
 
 
