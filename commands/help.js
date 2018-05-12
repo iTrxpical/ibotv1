@@ -5,7 +5,7 @@ exports.run = (Discord, client, message, args) => {
     let thumbnail = client.user.avatarURL;
     let name = client.user.username;
 
-        message.reply("https://is.gd/ibotonline, the prefix in this server is '!'");
+        message.reply("http://ibot.space/, the prefix in this server is '!'");
         
 
 }
