@@ -8,7 +8,7 @@ const db = require('quick.db');
 const { get } = require("snekfetch"); 
 const superagent = require("superagent");
 const weather = require('weather-js');
-const DBL = require("dbl-api");
+const DBL = require("dblapi.js");
 const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM4MzY1ODUwNjA2MDAzODE0NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTI2MTEwODAxfQ.VJFyu_SJjU6rJQZFJrsTP7azerUJjNPLs3UHvAPPKyw', client);
 
 var randomColor = Math.floor(Math.random() * 16777215).toString(16);
