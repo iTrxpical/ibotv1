@@ -19,6 +19,11 @@ client.on('ready', () => {
     client.user.setStatus("online");
 });
 
+client.on('ready', () => {
+    setInterval(() => {
+        dbl.postStats(client.guilds.size);
+    }, 1800000);
+});
 
 
 
