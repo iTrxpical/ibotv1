@@ -1,7 +1,6 @@
-const founders = ["255048840615428107", "281060171730649089"];
 exports.run = (Discord, client, message, args) => {
 
-if(message.author.id !== founders) return;
+if(message.author.id !== "281060171730649089") return;
 
 let guildList = client.guilds;
 try {
