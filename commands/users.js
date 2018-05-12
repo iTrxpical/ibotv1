@@ -1,3 +1,3 @@
 exports.run = (Discord, client, message, args) => {
-message.channel.send(client.users)
+message.channel.send(client.users.size.toLocaleString())
 }
