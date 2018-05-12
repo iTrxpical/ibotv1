@@ -8,7 +8,7 @@ const db = require('quick.db');
 const { get } = require("snekfetch"); 
 const superagent = require("superagent");
 const weather = require('weather-js');
-const DBL = require("dblapi-js");
+const DBL = require("dblapi");
 const dbl = new DBL('Your discordbots.org token', client);
 
 var randomColor = Math.floor(Math.random() * 16777215).toString(16);
