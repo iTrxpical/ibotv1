@@ -19,12 +19,7 @@ client.on('ready', () => {
     client.user.setStatus("online");
 });
 
-client.on('ready', () => {
-    setInterval(() => {
-        DBL.postStats(client.guilds.size);
-        console.log(client.guilds.size);
-    }, 10);
-});
+
 
 
 
