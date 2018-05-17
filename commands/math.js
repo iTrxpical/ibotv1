@@ -4,8 +4,7 @@ const Discord = require('discord.js'),
 exports.run = (client, message, args, tools) => {
     
     // Form Embed
-    const embed = new Discord.MessageEmbed()
-        .setColor(0xffffff);
+
     
     // Verify Input
     if (!args[0]) {
