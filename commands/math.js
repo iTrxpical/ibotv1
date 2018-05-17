@@ -33,6 +33,6 @@ exports.run = (client, message, args, tools) => {
 
          
     // Send Embed
-    message.channel.send('Input:`\`\`\`js\n${args.join(' ')}\`\`\`\n  Output, `\`\`\`js\n${result}\`\`\`');
+    message.channel.send('**Input:** ' + args.join(' ') + '\n**Output:** ' + result);
     
 }
