@@ -30,12 +30,9 @@ exports.run = (client, message, args, tools) => {
         
     }
         
-    
-    // Configure Embed
-    embed.addField('Input', `\`\`\`js\n${args.join(' ')}\`\`\``)
-         .addField('Output', `\`\`\`js\n${result}\`\`\``);
+
          
     // Send Embed
-    message.channel.send(embed);
+    message.channel.send('Input:`\`\`\`js\n${args.join(' ')}\`\`\`\n  Output, `\`\`\`js\n${result}\`\`\`');
     
 }
