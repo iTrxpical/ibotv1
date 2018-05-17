@@ -10,11 +10,9 @@ exports.run = (client, message, args, tools) => {
     // Verify Input
     if (!args[0]) {
         
-        // Configure Embed
-        embed.setFooter('Please input an expression.');
-        
+
         // Return & Send Embed
-        return message.channel.send(embed);
+        return message.channel.send('Please input an expression.');
         
     }
     
