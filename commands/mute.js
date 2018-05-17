@@ -3,7 +3,7 @@ const ms = require("ms");
 
 exports.run = async (Discord, client, message, args) => {
     let staffc = message.guild.channels.find("name", "logs")
-    if (!staffc) return message.channel.send("I can not find the log channel, the user has been kicked. For logs, get the sever admin to make a channel called `logs`.");
+    if (!staffc) return message.channel.send("I can not find the log channel. For logs, get the sever admin to make a channel called `logs`.");
     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Sorry, but you do not have valid permissions! If you beleive this is a error, contact an owner.");
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if (!tomute) return message.reply("Couldn't find user.");
