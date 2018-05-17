@@ -32,6 +32,12 @@ exports.run = async (Discord, client, message, args) => {
 
     await (tomute.addRole(muterole.id));
     message.reply(`<@${tomute.id}> has been muted for ${ms(ms(mutetime))}`);
+      const embed = new Discord.RichEmbed()
+            .setColor(0x8cff00)
+            .setTimestamp()
+            .setDescription(`**Action:** Mute\n**Target:** ${tomute.tag}\n**Moderator:** ${message.author.tag}\n**Length:** ${ms(ms(mutetime))}`);
+        staffc.send({embed});
+        message.tomute.send(`You have been muted for **${ms(ms(mutetime))}** by ${message.author.tag}`);
 
     setTimeout(function() {
         tomute.removeRole(muterole.id);
