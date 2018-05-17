@@ -1,7 +1,7 @@
 const Discord = require('discord.js'),
       math = require('math-expression-evaluator');
 
-exports.run = (client, message, args, tools) => {
+exports.run = (Discord, client, message, args, tools) => {
     
     // Form Embed
 
