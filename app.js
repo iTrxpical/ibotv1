@@ -41,7 +41,49 @@ client.on('message', message => {
     
 
    
-   
+      // Access the 'AFK' table w/ Quick.db
+   let status = new db.table('AFKs');
+
+   // Check if author is AFK
+   let authorStatus = await afk.fetch(message.author.id);
+
+   if (authorStatus) { // Run if they are AFK
+
+     const embed = new Discord.MessageEmbed()
+       .setColor(0xffffff)
+       .setFooter(`${message.author.username} is no longer AFK.`)
+
+     // Send a 'You are no longer AFK message'
+     message.channel.send(embed).then(i => i.delete({
+       timeout: 5000
+     }))
+
+     // This will delete the user from the AFK pool in the database
+     afk.delete(message.author.id);
+
+   }
+
+   let mentioned = message.mentions.members.first(); // This will store the first member mentioned
+   if (mentioned) { // This will run if a member is mentioned
+
+     // Access AFK Status
+     let status = await afk.fetch(mentioned.id);
+
+     if (status) { // This will run if they are AFK (since the db will return true)
+
+       // Form Embed
+       const embed = new Discord.MessageEmbed()
+         .setColor(0xffffff)
+         .setFooter(status);
+
+       // Send Embed
+       message.channel.send(embed);
+
+     }
+
+   }
+
+
    if (message.mentions.members.firstKey() === '383658506060038144') {
     message.channel.send(':zzz: :zzz: :sleeping: You woke me. How rude! :angry: My basic prefix is ! but it may have changed!')
    }
