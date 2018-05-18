@@ -16,12 +16,13 @@ var randomColor = Math.floor(Math.random() * 16777215).toString(16);
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}! There are no apparent major bugs.`);
     client.user.setStatus("online");
+    client.user.setPresence({ game: { name: `ibot.space`, url: 'https://www.twitch.tv/discordapp', type: 1 } });
 });
 
 client.on('ready', () => {
     setInterval(() => {
         dbl.postStats(client.guilds.size);
-        client.user.setActivity('with ' + client.users.size.toLocaleString() + ' users! | ibot.space', { type: 'WATCHING' });
+        //client.user.setActivity('with ' + client.users.size.toLocaleString() + ' users! | ibot.space', { type: 'WATCHING' });
     }, 500);
 });
 
