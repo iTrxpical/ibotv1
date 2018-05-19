@@ -1,6 +1,6 @@
-const Discord = module.require("discord.js")
 
-module.exports.run = async (client, message, args) => {
+
+module.exports.run = async ((Discord, client, message, args) => {
     if(message.author.id !== '281060171730649089') return;
     function clean(text) {
       if (typeof(text) === "string")
