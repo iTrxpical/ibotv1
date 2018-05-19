@@ -33,6 +33,5 @@ exports.run = (Discord, client, message, args, tools) => {
 
                             message.channel.send('Username not found!');
 
-                        })
-
-                }
+        })
+}
