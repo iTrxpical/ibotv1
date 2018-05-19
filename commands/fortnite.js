@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const apikey = "948ac340-6e14-4d31-9a8c-49b01fa64178";
+const apikey = ("948ac340-6e14-4d31-9a8c-49b01fa64178");
 const Fortnite = require("fortnite");
 const ft = new Fortnite(apikey.fortnite);
 
