@@ -6,7 +6,7 @@ const send = require('quick.hook'); // This will be used for creating & sending 
 const client = new Discord.Client();
 
 // We can call our command handler here
-exports.run = async (Discord, message, args) => {
+exports.run = async (Discord, message, args, tools, client) => {
     // Be sure to call this in async, as we will be fetching the invites of the guild
 
     // First, we need to fetch the invites
