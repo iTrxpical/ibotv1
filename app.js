@@ -22,6 +22,7 @@ client.on('ready', () => {
     setInterval(() => {
         dbl.postStats(client.guilds.size);
         client.user.setActivity('with ' + client.users.size.toLocaleString() + ' users! | ibot.space', { type: 'WATCHING' });
+        client.user.setPresence({ game: { name: `ibot.space | ${client.user.size.toLocaleString()} users!`, url: 'https://twitch.tv/discordapp', type: 1 } });
     }, 500);
 });
 
