@@ -3,6 +3,7 @@ const Discord = require('discord.js'); // This will be used for creating embed
 const arraySort = require('array-sort'); // This will be used for sorting arrays
 const table = require('table'); // This will be used for preparing the output to a table
 const send = require('quick.hook'); // This will be used for creating & sending webhooks
+const client = new Discord.Client();
 
 // We can call our command handler here
 exports.run = async (Discord, client, message, args) => {
