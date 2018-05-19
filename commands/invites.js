@@ -1,10 +1,11 @@
+ // This episode will go over Invite Leaderboards, sorted.
 const Discord = require('discord.js'), // This will be used for creating embed
       arraySort = require('array-sort'), // This will be used for sorting arrays
       table = require('table'); // This will be used for preparing the output to a table
       send = require('quick.hook'); // This will be used for creating & sending webhooks
 
 // We can call our command handler here
-exports.run = async (client, message, args, tools) => {
+exports.run = async (Discord, client, message, args, tools) => {
     // Be sure to call this in async, as we will be fetching the invites of the guild
 
     // First, we need to fetch the invites
