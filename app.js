@@ -49,7 +49,7 @@ client.on('message', message => {
    
    var guildid = message.guild.id
     db.fetch(`guildPrefix_${guildid}`).then(i => {
-           const prefixes = ['!', 'KC', 'i', '@383658506060038144'];
+           const prefixes = ['!', 'KC', 'i', '^<@!?@383658506060038144>'];
            let prefix = false;
            for(const thisPrefix of prefixes) {
              if(message.content.startsWith(thisPrefix)) prefix = thisPrefix;
