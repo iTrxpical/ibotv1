@@ -1,8 +1,9 @@
+
 const Fortnite = require('fortnite');
 const stats = new Fortnite("948ac340-6e14-4d31-9a8c-49b01fa64178");
+const Discord = require('discord.js');
 
-
-exports.run = (Discord, client, message, args, tools) => {
+exports.run = (client, message, args, tools) => {
 
         let platform;
         let username;
@@ -33,5 +34,6 @@ exports.run = (Discord, client, message, args, tools) => {
 
                             message.channel.send('Username not found!');
 
-        })
-}
+                        })
+
+                }
