@@ -45,14 +45,12 @@ client.on('message', message => {
    
 
 
-   if (message.mentions.members.firstKey() === '383658506060038144') {
-    message.channel.send(':zzz: :zzz: :sleeping: You woke me. How rude! :angry: My basic prefix is ! but it may have changed!')
-   }
+
    
    var guildid = message.guild.id
     db.fetch(`guildPrefix_${guildid}`).then(i => {
         
-           const prefixes = ['!', 'KC', 'i'];
+           const prefixes = ['!', 'KC', 'i', '^<@!?${client.user.id}>'];
            let prefix = false;
            for(const thisPrefix of prefixes) {
              if(message.content.startsWith(thisPrefix)) prefix = thisPrefix;
