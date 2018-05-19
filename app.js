@@ -13,18 +13,19 @@ const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM4MzY1ODUwNj
 
 
 var randomColor = Math.floor(Math.random() * 16777215).toString(16);
-   
+exports.run = async (Discord, client, message, args) => {
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}! There are no apparent major bugs.`);
     client.user.setStatus("online");
     client.user.setPresence({ game: { name: `ibot.space`, url: 'https://www.twitch.tv/discordapp', type: 1 } });
-   
+  
 
    var prefix = '!';
    let fetched = await db.fetch(`prefix_${message.guild.id}`);
    if (fetched === null) prefix = '!';
    else prefix = fetched;
 });
+}
 
 client.on('ready', () => {
     setInterval(() => {
