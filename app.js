@@ -51,8 +51,14 @@ client.on('message', message => {
    
    var guildid = message.guild.id
     db.fetch(`guildPrefix_${guildid}`).then(i => {
-
-        let prefix = i || '!' && 'KC'
+        
+           const prefixes = ['!', 'KC', 'i'];
+           let prefix = false;
+           for(const thisPrefix of prefixes) {
+             if(message.content.startsWith(thisPrefix)) prefix = thisPrefix;
+        
+}
+        
 
         let msg = message.content.toLowerCase();
         let args = message.content.slice(prefix.length).trim().split(" ");
