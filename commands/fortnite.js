@@ -1,14 +1,14 @@
+
 const Discord = require("discord.js");
-const apikey = ("948ac340-6e14-4d31-9a8c-49b01fa64178");
-const Fortnite = require("fortnite");
-const ft = new Fortnite(apikey.fortnite);
+const Client = require('fortnite');
+const fortnite = new Client('948ac340-6e14-4d31-9a8c-49b01fa64178');
 
 module.exports.run = async (client, message, args) => {
         //
         let username = args[0];
         let platform = args[1] || "pc";
         
-        let data = ft.getInfo(username, platform).then(data => {
+        fortnite.user(username, platform).then => {
                 
                 let stats = data.lifetimeStatus;
                 let kills = stats.find(s => s.stat == 'kills');
