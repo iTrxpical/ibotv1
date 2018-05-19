@@ -29,6 +29,7 @@ module.exports.run = async (client, message, args) => {
                 console.log(e);
                 message.channel.send("Couldn't find that username in the database");
         });
+}
         
         
                 
