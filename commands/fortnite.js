@@ -8,7 +8,7 @@ module.exports.run = async (client, message, args) => {
         let username = args[0];
         let platform = args[1] || "pc";
         
-        fortnite.user(username, platform).then => {
+        fortnite.user(username, platform).then(console.log);
                 
                 let stats = data.lifetimeStatus;
                 let kills = stats.find(s => s.stat == 'kills');
