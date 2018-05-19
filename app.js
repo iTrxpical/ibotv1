@@ -11,26 +11,17 @@ const weather = require('weather-js');
 const DBL = require("dblapi.js");
 const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM4MzY1ODUwNjA2MDAzODE0NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTI2MTEwODAxfQ.VJFyu_SJjU6rJQZFJrsTP7azerUJjNPLs3UHvAPPKyw', client);
 
-
 var randomColor = Math.floor(Math.random() * 16777215).toString(16);
-
+   
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}! There are no apparent major bugs.`);
     client.user.setStatus("online");
-    client.user.setPresence({ game: { name: `ibot.space`, url: 'https://www.twitch.tv/discordapp', type: 1 } });
-  
-
-   var prefix = '!';
-   let fetched = db.fetch(`prefix_${message.guild.id}`);
-   if (fetched === null) prefix = '!';
-   else prefix = fetched;
 });
-
 
 client.on('ready', () => {
     setInterval(() => {
         dbl.postStats(client.guilds.size);
-        //client.user.setActivity('with ' + client.users.size.toLocaleString() + ' users! | ibot.space', { type: 'WATCHING' });
+        client.user.setActivity('with ' + client.users.size.toLocaleString() + ' users! | ibot.space', { type: 'WATCHING' });
     }, 500);
 });
 
@@ -57,7 +48,10 @@ client.on('message', message => {
     message.channel.send(':zzz: :zzz: :sleeping: You woke me. How rude! :angry: My basic prefix is ! but it may have changed!')
    }
    
+   var guildid = message.guild.id
+    db.fetch(`guildPrefix_${guildid}`).then(i => {
 
+        let prefix = i || '!'
 
         let msg = message.content.toLowerCase();
         let args = message.content.slice(prefix.length).trim().split(" ");
