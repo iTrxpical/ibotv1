@@ -49,8 +49,9 @@ client.on('message', message => {
    
    var guildid = message.guild.id
     db.fetch(`guildPrefix_${guildid}`).then(i => {
-        
-           const prefixes = ['!', 'KC', 'i', '^<@!?${client.user.id}>'];
+           const prefixMention = new RegExp(`^<@!?${client.user.id}> `);
+           let prefix2 = prefixMention.match(message.content) ? message.content.match(prefixMention)[0] + " " : prefix2;
+           const prefixes = ['!', 'KC', 'i', prefix2];
            let prefix = false;
            for(const thisPrefix of prefixes) {
              if(message.content.startsWith(thisPrefix)) prefix = thisPrefix;
