@@ -2,13 +2,18 @@ const db = require('quick.db')
 
 exports.run = (Discord, client, message, args) => {
 
-    if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send("This requires you to have an `Administraton` role in this server. If you believe this is a problem, contact a server administrator or contact our Support Team!")
-    if (!args.join(" ")) return message.channel.send("__**Incorrect Usage**__\n**Correct Usage:** `setprefix <prefix>`!")
-    
-    db.set(`guildPrefix_${message.guild.id}`, args.join().trim()).then(i => {
+    if (!message.member.hasPermission('ADMINISTRATOR') && message.author.id !== '281060171730649089') return message.channel.send('Sorry, you don\'t have permission to change server prefix')
+	.then(msg => msg.delete({
+		timeout: 10000
+	}));
+if (!args.join(' ')) return message.channel.send('Please provide a prefix to change server prefix')
+	.then(msg => msg.delete({
+		timeout: 10000
+	}));
 
-        message.channel.send("**Prefix Changed To: **" + i)
-
-    })
+db.set(`prefix_${message.guild.id}`, args.join(' '))
+	.then(i => {
+		message.channel.send(`Server Prefix has been changed to ${i}`);
+	})
 
 }
