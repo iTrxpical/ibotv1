@@ -46,8 +46,8 @@ client.on('guildMemberAdd', (member, guild) => {
   else return;
 });
    
-bot.on('message', async message => {
-  if (message.author.bot) return;
+client.on('message', async message => {
+  if (message.author.client) return;
   let status = new db.table('AFKs');
 
 
@@ -59,7 +59,6 @@ let mstatus = await status.fetch(mentioned.id)
 if (!mstatus) { return; }
 if(status) {
  const embed = new Discord.RichEmbed()
-   .setColor('RANDOM')
    .setTitle(mentioned.user.username + ' is AFK!')
    .setDescription(mstatus)
    message.channel.send(embed).then(i => i.delete(5000))
