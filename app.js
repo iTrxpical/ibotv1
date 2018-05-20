@@ -1,5 +1,5 @@
 // TGS-Bot
-// Version: 0.9 PRE-ALPHA / PRE-REALEASE
+// Version: 0.9 PRE-ALPHA / PRE-REALEASE ibot.sapce
 // Discord Code: 
 
 const Discord = require('discord.js');
@@ -16,15 +16,18 @@ var randomColor = Math.floor(Math.random() * 16777215).toString(16);
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}! There are no apparent major bugs.`);
     client.user.setStatus("online");
+    setInterval(function(){ client.user.setActivity(`client.user.setPresence({ game: { name: `ibot.space | ${client.users.size} users!`, url: 'https://twitch.tv/discordapp', type: 1 } }}, 5000);
+    setInterval(function(){ client.user.setActivity(`client.user.setPresence({ game: { name: `ibot.space | ${client.guilds.size} servers!`, url: 'https://twitch.tv/discordapp', type: 1 } }}, 5000);
 });
 
 client.on('ready', () => {
     setInterval(() => {
         dbl.postStats(client.guilds.size);
         let users = client.users.size.toLocaleString()
-        client.user.setPresence({ game: { name: `ibot.space | ${users} users!`, url: 'https://twitch.tv/discordapp', type: 1 } });
+// client.user.setPresence({ game: { name: `ibot.space | ${users} users!`, url: 'https://twitch.tv/discordapp', type: 1 } });
     }, 500);
 });
+
 
 
 client.on('guildMemberAdd', (member, guild) => {
