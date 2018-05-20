@@ -35,6 +35,7 @@ client.on('guildMemberAdd', (member, guild) => {
 	const humansize = totalsize - botsize;
 	if(member.guild.id === '334833519840985089') {
 		guild.search({
+			after: '2015-05-15 '
 		})
   			.then(res => {
     				const hit = res.messages[0].find(m => m.hit).content;
