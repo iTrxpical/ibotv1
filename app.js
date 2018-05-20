@@ -27,19 +27,6 @@ client.on('ready', () => {
 });
 
 
-
-
-
-client.on('message', message => {
-
-    let sender = message.author;
-
-    if (sender.bot) return;
-    if (message.channel.type === 'dm') {
-        message.channel.send("**Unfortunately we can only read things in guilds (servers). The comamnd prefix is '!' **")
-        return;
-}
-
 client.on('guildMemberAdd', (member, guild) => {
 	const totalsize = member.guild.memberCount;
 	const botsize = member.guild.members.filter(m => m.user.bot).size;
@@ -52,6 +39,19 @@ client.on('guildMemberAdd', (member, guild) => {
   else return;
 });
    
+
+
+client.on('message', message => {
+
+    let sender = message.author;
+
+    if (sender.bot) return;
+    if (message.channel.type === 'dm') {
+        message.channel.send("**Unfortunately we can only read things in guilds (servers). The comamnd prefix is '!' **")
+        return;
+}
+
+
    
 
 
