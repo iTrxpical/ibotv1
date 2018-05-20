@@ -46,6 +46,31 @@ client.on('guildMemberAdd', (member, guild) => {
   else return;
 });
    
+bot.on('message', async message => {
+  if (message.author.bot) return;
+  let status = new db.table('AFKs');
+
+
+// Check if author is AFK
+let authorStatus = await status.fetch(message.author.id);
+let mentioned = message.mentions.members.first();
+if (mentioned) { 
+let mstatus = await status.fetch(mentioned.id)
+if (!mstatus) { return; }
+if(status) {
+ const embed = new Discord.RichEmbed()
+   .setColor('RANDOM')
+   .setTitle(mentioned.user.username + ' is AFK!')
+   .setDescription(mstatus)
+   message.channel.send(embed).then(i => i.delete(5000))
+
+  } else if(!status) {
+  return;
+  }
+
+}
+
+});
 
 
 client.on('message', message => {
