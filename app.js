@@ -39,8 +39,18 @@ client.on('message', message => {
         message.channel.send("**Unfortunately we can only read things in guilds (servers). The comamnd prefix is '!' **")
         return;
 }
-    
 
+client.on('guildMemberAdd', (member, guild) => {
+	const totalsize = member.guild.memberCount;
+	const botsize = member.guild.members.filter(m => m.user.bot).size;
+	const humansize = totalsize - botsize;
+	if(member.guild.id === '444159749458755594') {
+		member.guild.channels.get("334833519840985089").setName("Total Users : " + member.guild.memberCount);
+		member.guild.channels.get("447811003695235082").setName("Member Count  : " + humansize);
+		member.guild.channels.get("447811053590544415").setName("Bot Count : " + member.guild.members.filter(m => m.user.bot).size);
+	}
+  else return;
+});
    
    
 
