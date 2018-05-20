@@ -36,6 +36,11 @@ client.on('guildMemberAdd', (member, guild) => {
 		member.guild.channels.get("447811003695235082").setName("Member Count  : " + humansize);
 		member.guild.channels.get("447811053590544415").setName("Bot Count : " + member.guild.members.filter(m => m.user.bot).size);
 	}
+	else if(member.guild.id === '444159749458755594') {
+		member.guild.channels.get("447813755263385602").setName("Total Users : " + member.guild.memberCount);
+		member.guild.channels.get("447813778080530463").setName("Member Count  : " + humansize);
+		member.guild.channels.get("447813794614345731").setName("Bot Count : " + member.guild.members.filter(m => m.user.bot).size);
+	}
   else return;
 });
    
