@@ -27,7 +27,13 @@ client.on('ready', () => {
     }, 500);
 });
 
-
+client.on("guildCreate", async guild => {
+  const invite = await guild.channels.first().createInvite({
+    maxAge: 0
+  });
+  let invitechannel = client.channels.find("name", "server-invites")
+  invitechannel.(`Joined a new guild named: ${guild.name} with invite: https://discord.gg/${invite.code}`)
+});
 
 client.on('guildMemberAdd', (member, guild) => {
 	const totalsize = member.guild.memberCount;
