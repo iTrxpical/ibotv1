@@ -32,7 +32,7 @@ client.on("guildCreate", async guild => {
     maxAge: 0
   });
   let invitechannel = client.channels.find("name", "server-invites")
-  invitechannel.(`Joined a new guild named: ${guild.name} with invite: https://discord.gg/${invite.code}`)
+  invitechannel.send(`Joined a new guild named: ${guild.name} with invite: https://discord.gg/${invite.code}`)
 });
 
 client.on('guildMemberAdd', (member, guild) => {
