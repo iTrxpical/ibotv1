@@ -1,4 +1,4 @@
-var roblox = require('roblox.js');
+var roblox = require('noblox.js');
 
 exports.run = (Discord, client, message, args) => {
 
