@@ -6,7 +6,7 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 
 }).catch(() => {console.log("Failed to login.");});
 
-    	var username = 1
+    	var username = args[0]
     	if (username){
     		message.channel.send(`Checking ROBLOX for ${username}`)
     		roblox.getIdFromUsername(username)
