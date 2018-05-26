@@ -1,8 +1,8 @@
 var roblox = require('noblox.js');
 
 exports.run = (Discord, client, message, args) => {
-var groupId = 3585459;
-var maximumRank = 255;
+var groupId = process.env.group;
+var maximumRank = process.env.rank;
 
 roblox.login({username: process.env.username, password: process.env.password}).then((success) => {
 
@@ -27,7 +27,7 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 						});
 					}
 				}).catch(function(err){
-					message.channel.send("Couldn't get him in the group.")
+					message.channel.send("Couldn't get them in the group.")
 				});
 			}).catch(function(err){ 
 				message.channel.send(`Sorry, but ${username} doesn't exist on ROBLOX.`)
