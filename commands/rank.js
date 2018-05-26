@@ -1,6 +1,8 @@
 var roblox = require('noblox.js');
 
 exports.run = (Discord, client, message, args) => {
+var groupId = 3585459;
+var maximumRank = 255;
 
 roblox.login({username: process.env.username, password: process.env.password}).then((success) => {
 
