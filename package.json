@@ -23,7 +23,8 @@
     "quick.hook": "^1.3.0",
     "google-translate-api": "^2.3.0",
     "math-expression-evaluator": "^1.2.17",
-    "fortnite": "^4.1.1"
+    "fortnite": "^4.1.1",
+    "noblox.js": "^4.1.1"
 
     
 }
