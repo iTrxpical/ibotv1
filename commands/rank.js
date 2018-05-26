@@ -1,6 +1,8 @@
+var roblox = require('roblox-js');
+
 exports.run = (Discord, client, message, args) => {
 
-roblox.login({username: "Username_Here", password: "Password_Here"}).then((success) => {
+roblox.login({username: process.env.username, password: process.env.password}).then((success) => {
 
 }).catch(() => {console.log("Failed to login.");});
 
