@@ -7,7 +7,7 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 }).catch(() => {console.log("Failed to login.");});
 
     	var username = args[1]
-    	if (username){
+
     		message.channel.send(`Checking ROBLOX for ${username}`)
     		roblox.getIdFromUsername(username)
 			.then(function(id){
@@ -30,7 +30,7 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 			}).catch(function(err){ 
 				message.channel.send(`Sorry, but ${username} doesn't exist on ROBLOX.`)
 			});
-    	} else {
+    	}
     		message.channel.send("Please enter a username.")
     	}
     	return;
