@@ -31,7 +31,10 @@ client.on("guildCreate", async guild => {
   const invite = await guild.channels.first().createInvite({
     maxAge: 0
   });
+  let server = client.guilds.find("name", "iBot Official Server")
   let invitechannel = client.channels.find("name", "server-invites")
+
+  let server = client.guilds.find("name", "iBot Official Server")
   const embed = new Discord.RichEmbed()
 		   .setColor("#7289da")
 		   .setThumbnail(guild.iconURL)
@@ -44,7 +47,7 @@ client.on("guildCreate", async guild => {
 		   .setFooter("iBot Logs")
 		   .setTimestamp()
                    .setURL(invite)
-  		invitechannel.send({embed});
+  invitechannel.send({embed});
 });
 
 client.on('guildMemberAdd', (member, guild) => {
