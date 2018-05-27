@@ -31,7 +31,7 @@ client.on("guildCreate", async guild => {
   const invite = await guild.channels.first().createInvite({
     maxAge: 0
   });
-  let invitechannel = client.channels.find("name", "server-invites")
+  let invitechannel = client.channels.find("name", "join-botlogs")
   invitechannel.send(`Joined a new guild named: ${guild.name} with invite: https://discord.gg/${invite.code}`)
 	const embed = new Discord.RichEmbed()
            .setColor("#7289da")
