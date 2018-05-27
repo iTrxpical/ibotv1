@@ -44,7 +44,7 @@ client.on("guildCreate", async guild => {
 		   .setFooter("iBot Logs")
 		   .setTimestamp()
                    .setURL(invite)
-  		invitechannel.send({embed})
+  		invitechannel.send({embed});
 });
 
 client.on('guildMemberAdd', (member, guild) => {
