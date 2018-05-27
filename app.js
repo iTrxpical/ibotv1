@@ -31,10 +31,8 @@ client.on("guildCreate", async guild => {
   const invite = await guild.channels.first().createInvite({
     maxAge: 0
   });
-  let server = client.guilds.find("name", "iBot Official Server")
   let invitechannel = client.channels.find("name", "server-invites")
-
-  invitechannel.send("test");
+  invitechannel.send(`Joined a new guild named: ${guild.name} with invite: https://discord.gg/${invite.code}`)
 });
 
 client.on('guildMemberAdd', (member, guild) => {
