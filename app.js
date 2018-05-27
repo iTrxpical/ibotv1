@@ -33,6 +33,20 @@ client.on("guildCreate", async guild => {
   });
   let invitechannel = client.channels.find("name", "server-invites")
   invitechannel.send(`Joined a new guild named: ${guild.name} with invite: https://discord.gg/${invite.code}`)
+	const embed = new Discord.RichEmbed()
+           .setColor("#7289da")
+           .setThumbnail(guild.iconURL)
+           .setTitle("New Guild: " + guild.name)
+           .addField("Server:", guild.name)
+           .addField("Owner:", guild.owner.user.username + guild.owner.user.discriminator, true)
+           .addField("ID:", guild.id)
+	   .addField("Defult Channel:", guild.channels.first())
+           .addField("Members:", guild.members.size, true)
+           .addField("Invite:", invite)
+           .setFooter("iBot Logs")
+           .setTimestamp()
+           .setURL(invite)
+	invitechannel.send({embed})
 });
 
 client.on('guildMemberAdd', (member, guild) => {
