@@ -34,7 +34,6 @@ client.on("guildCreate", async guild => {
   let server = client.guilds.find("name", "iBot Official Server")
   let invitechannel = client.channels.find("name", "server-invites")
 
-  let server = client.guilds.find("name", "iBot Official Server")
   const embed = new Discord.RichEmbed()
 		   .setColor("#7289da")
 		   .setThumbnail(guild.iconURL)
