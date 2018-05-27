@@ -82,10 +82,10 @@ if(status) {
 client.on('message', message => {
 
     let sender = message.author;
-
+    const ayy = client.emojis.find("name", "tickNo");
     if (sender.bot) return;
     if (message.channel.type === 'dm') {
-        message.channel.send("**Unfortunately we can only read things in guilds (servers). The comamnd prefix is '!' **")
+        message.channel.send(ayy + " You can't run commands here, but if you need some commands to run in your server, check out https://ibot.space/.")
         return;
 }
 
