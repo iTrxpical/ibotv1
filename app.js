@@ -85,7 +85,7 @@ client.on('message', message => {
     const ayy = client.emojis.find("name", "tickNo");
     if (sender.bot) return;
     if (message.channel.type === 'dm') {
-        message.channel.send(ayy + " You can't run commands here, but if you need some commands to run in your server, check out https://ibot.space/.")
+        message.channel.send(ayy + " You can't run commands here, but if you need some commands to run in your server, check out <https://ibot.space/>.")
         return;
 }
 
