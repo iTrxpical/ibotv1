@@ -34,19 +34,7 @@ client.on("guildCreate", async guild => {
   let server = client.guilds.find("name", "iBot Official Server")
   let invitechannel = client.channels.find("name", "server-invites")
 
-  const embed = new Discord.RichEmbed()
-		   .setColor("#7289da")
-		   .setThumbnail(guild.iconURL)
-		   .setTitle("New Guild: " + guild.name)
-  		   .addField("Server:", guild.name)
-                   .addField("Owner:", guild.owner.user.username + guild.owner.user.discriminator, true)
-     		   .addField("ID:", guild.id)
-  		   .addField("Members:", guild.members.size, true)
-                   .addField("Invite:", invite)
-		   .setFooter("iBot Logs")
-		   .setTimestamp()
-                   .setURL(invite)
-  invitechannel.send({embed});
+  invitechannel.send("test");
 });
 
 client.on('guildMemberAdd', (member, guild) => {
