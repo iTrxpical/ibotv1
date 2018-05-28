@@ -5,7 +5,7 @@ exports.run = (Discord, client, message, args) => {
 if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("No can do pal!, MANAGE_ROLES is needed.");
 let stored = db.fetch(`RobloxProfile_${message.guild.id}`)
 let staffc = message.guild.channels.find("name", "logs")	
-var groupId = stored.groupid; //replace with stored stuff from earlier
+var groupId = stored.groupId; //replace with stored stuff from earlier
 var maximumRank = stored.maxrank; //replace with stored stuff from earlier
 
 
