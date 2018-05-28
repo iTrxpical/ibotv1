@@ -1,10 +1,15 @@
 var roblox = require('noblox.js');
-
+const db = require('quick.db')
 exports.run = (Discord, client, message, args) => {
-var groupId = process.env.group;
-var maximumRank = process.env.rank;
 
-roblox.login({username: process.env.username, password: process.env.password}).then((success) => {
+if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("No can do pal!, MANAGE_ROLES is needed.");
+let stored = db.fetch(`RobloxProfile_${message.guild.id}`)
+let staffc = message.guild.channels.find("name", "logs")	
+var groupId = stored.groupid; //replace with stored stuff from earlier
+var maximumRank = stored.maxrank; //replace with stored stuff from earlier
+
+
+roblox.login({username: stored.username, password: stored.password}).then((success) => {
 
 }).catch(() => {console.log("Failed to login.");});
 
@@ -14,6 +19,7 @@ roblox.login({username: process.env.username, password: process.env.password}).t
     		roblox.getIdFromUsername(username)
 			.then(function(id){
 				roblox.getRankInGroup(groupId, id)
+			        
 				.then(function(rank){
 					if(maximumRank <= rank){
 						message.channel.send(`${id} is rank ${rank} and not promotable.`)
@@ -22,6 +28,11 @@ roblox.login({username: process.env.username, password: process.env.password}).t
 						roblox.promote(groupId, id)
 						.then(function(roles){
 							message.channel.send(`Promoted from ${roles.oldRole.Name} to ${roles.newRole.Name}`)
+							const embed = new Discord.RichEmbed()
+							    .setColor(0x8cff00)
+							    .setTimestamp()
+							    .setDescription(`**Action:** Promote\n**Target:** ${username}\n**User:** ${message.author.tag}`);
+							staffc.send({embed});
 						}).catch(function(err){
 							message.channel.send("Failed to promote.")
 						});
