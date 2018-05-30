@@ -11,7 +11,7 @@ exports.run = (Discord, client, message, args, tools) => {
         
 
         // Return & Send Embed
-        return message.channel.send('Please input an expression.');
+        return message.channel.send('Please input an expression');
         
     }
     

@@ -5,6 +5,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const db = require('quick.db');
+db.createWebview('Wimpykid7', process.env.PORT);
 const { get } = require("snekfetch"); 
 const superagent = require("superagent");
 const weather = require('weather-js');
@@ -12,7 +13,16 @@ const DBL = require("dblapi.js");
 const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM4MzY1ODUwNjA2MDAzODE0NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTI2MTEwODAxfQ.VJFyu_SJjU6rJQZFJrsTP7azerUJjNPLs3UHvAPPKyw', client);
 
 var randomColor = Math.floor(Math.random() * 16777215).toString(16);
-   
+ 
+const http = require('http');
+const express = require('express');
+const app = express();
+
+app.listen(8080);
+setInterval(() => {
+http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+}, 300000);
+
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}! There are no apparent major bugs.`);
     client.user.setStatus("online");
