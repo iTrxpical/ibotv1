@@ -38,12 +38,30 @@ client.on('ready', () => {
 });
 
 client.on("guildCreate", async guild => {
-  const invite = await guild.channels.first().createInvite({
-    maxAge: 0
+    const invite = await guild.channels.first().createInvite({
+      maxAge: 0
+    });
+    const name = guild.name
+    const owner = guild.owner
+    let invitechannel = client.channels.find("name", "server-invites")
+    //const invitechannel = client.channels.find("id", "449182354507038720")
+    const randomchannel = guild.channels.first()
+    const randomchannelid = randomchannel.id()
+    var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    var channel = client.channels.get("449182354507038720")
+
+    var joinEmbed = new Discord.RichEmbed()
+    .setTitle("New Guild")
+    .setColor(randomColor)
+    .setFooter("iBot | New Guild")
+    .setTimestamp()
+    .setThumbnail('https://cdn.discordapp.com/attachments/379006942875746306/451309167127560193/circle.png')
+    .setDescription("iBot has joined a new guild called, " + name + "! It is owned by " + owner + ".")
+    .addFild("Invite:", `https://discord.gg/${invite.code}`)
+    .addFild("Random Channel ID", randomchannelid)
+
+    invitechannel.channel.send(joinEmbed)
   });
-  let invitechannel = client.channels.find("name", "server-invites")
-  invitechannel.send(`Joined a new guild named: ${guild.name} with invite: https://discord.gg/${invite.code}`)
-});
 
 client.on('guildMemberAdd', (member, guild) => {
 	const totalsize = member.guild.memberCount;
